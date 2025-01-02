@@ -1,8 +1,54 @@
-# .NET 8 Application
+# .NET Core Layered Architecture Project
 
-This is a sample application built using .NET 8. It follows a layered architecture pattern with the Unit of Work pattern for efficient database management.
+This repository demonstrates a CRUD application built using a layered architecture pattern in .NET Core, implementing Unit of Work, repository patterns.
 
-## Prerequisites
+## Project Structure
+
+The project is divided into the following layers:
+
+### 1. Presentation Layer
+
+- **Location**: ProductsCRUD.WebApi
+- **Purpose**: APIs.
+- **Components**: API Controllers - Request/response models - Mapper profiles
+
+### 2. Application Layer
+
+- **Location**: ProductsCRUD.Application
+- **Purpose**: Contains business logic and coordinates data flow between the domain and presentation layers.
+- **Components**: DTOs - Application services - Validation logic
+
+### 3. Domain Layer
+
+- **Location**: ProductsCRUD.Domain
+- **Purpose**: Defines the core entities, interfaces, and domain logic.
+
+### 4. Infrastructure Layer
+
+- **Location**: ProductsCRUD.Data.EntityFrameworkCore
+- **Purpose**: Implements persistence and external services.
+- **Components**: ApplicationDbContext - Repository implementations - Unit of Work implementation
+
+### 5. Xunit Tests
+
+- **Location**: ProductsCRUD.Tests
+- **Purpose**: Implement unit and integration tests
+
+### Folder Structure
+
+```bash:no-line-numbers
+ProductsCRUD/
+├── ProductsCRUD.WebApi/                     # Presentation layer
+├── ProductsCRUD.WebApi.HTTPModels           # Requests/Responses
+├── ProductsCRUD.Application/                # Application layer
+├── ProductsCRUD.Domain/                     # Domain layer
+├── ProductsCRUD.Data.EntityFrameworkCore/   # Infrastructure layer
+├── ProductsCRUD.Tests                       # xunit tests
+├── Dockerfile
+├── docker-compose
+├── ProductsCRUD.sln                         # Solution file
+```
+### Prerequisites
 
 - .NET 8 SDK
 - A code editor like visual studio, or any IDE that supports .NET development
