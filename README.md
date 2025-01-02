@@ -39,6 +39,13 @@ The application should now be running locally, typically accessible at:
 http://localhost:5144/swagger/index.html
 ```
 
+### Login Account
+
+You can use this default user account for authentication:
+
+Username: admin
+Passowrd: admin
+
 ### Running Tests
 
 You can run unit and integration tests using:
